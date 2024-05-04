@@ -63,6 +63,21 @@ const paginatedData = [
 const tableItemsPerPage = [5, 10, 30, 50, 100, 'ALL']
 
 
+const TableHead = ({headerStyle, spanStyle, heading, handleSorting, headingIndex, sortIndex, sortDirection }) => {
+
+    return(
+      <th className={`text-[11px] border-r-[1px] border-b-[1px] border-b-black max-md:text-[.6rem] max-md:font-[400] select-none ${headerStyle}`}>
+      <div onClick={() => handleSorting(headingIndex)} className='flex items-center mr-4 cursor-pointer'>
+        <span className={spanStyle} >{heading}</span>
+        <div className='ml-auto' >
+          <FaSortUp className={`text-gray-400 ${sortIndex === headingIndex && (sortDirection == "asc" ? 'text-black' : '')}`} />
+          <FaSortDown className={`text-gray-400 ${sortIndex === headingIndex && (sortDirection == "desc" ? 'text-black' : '')}`} />
+        </div>
+      </div>
+    </th>
+    )
+}
+
 const Employee = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
@@ -72,7 +87,6 @@ const Employee = () => {
 
   const handleCreate = () => {
   }
-
 
   // <-------------------------Sorting-------------------------->
 
@@ -96,6 +110,7 @@ const Employee = () => {
     }
     return 0;
   });
+
   return (
     <>
       {loading ?
@@ -123,16 +138,11 @@ const Employee = () => {
 
                     <tr className=" uppercase leading-normal w-[100%]">
                       <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%]  text-[11px] select-none ">ID </th>
-                      <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-left pl-[2rem] max-md:w-[2%]  text-[11px] select-none ">
-                        <div onClick={() => handleSorting(1)} className='flex justify-between items-center mr-4 cursor-pointer'>
-                          <span>Name</span>
-                          <div >
-                            <FaSortUp className={`text-gray-400 ${sortIndex === 1 && (sortDirection == "asc" ? 'text-black' : '')}`} />
-                            <FaSortDown className={`text-gray-400 ${sortIndex === 1 && (sortDirection == "desc" ? 'text-black' : '')}`} />
-                          </div>
-                        </div>
-                      </th>
-                      <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-left pl-[2rem] max-md:w-[2%]  text-[11px] select-none ">
+                      <TableHead headerStyle="pl-[2rem]" heading="Name" handleSorting={handleSorting} headingIndex={1} sortDirection={sortDirection} sortIndex={sortIndex} />
+                      <TableHead headerStyle="pl-[2rem]" heading="Phone" handleSorting={handleSorting} headingIndex={2} sortDirection={sortDirection} sortIndex={sortIndex} />
+                      <TableHead headerStyle="" spanStyle="ml-auto" heading="Age" handleSorting={handleSorting} headingIndex={3} sortDirection={sortDirection} sortIndex={sortIndex} />
+                      <TableHead headerStyle="" spanStyle="ml-auto" heading="Salary" handleSorting={handleSorting} headingIndex={4} sortDirection={sortDirection} sortIndex={sortIndex} />
+                      {/* <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-left pl-[2rem] max-md:w-[2%]  text-[11px] select-none ">
                         <div onClick={() => handleSorting(2)} className='flex justify-between items-center mr-4 cursor-pointer'>
                           <span>Phone</span>
                           <div>
@@ -158,7 +168,7 @@ const Employee = () => {
                             <FaSortDown className={`text-gray-400 ${sortIndex === 4 ? sortDirection == "desc" ? 'text-black' : '' : ''}`} />
                           </div>
                         </div>
-                      </th>
+                      </th> */}
                       <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[10%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%] text-[11px] select-none ">Status</th>
                       <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[2%] max-md:text-[.6rem] max-md:font-[400] text-center text-[11px] select-none ">Actions</th>
                     </tr>
@@ -181,7 +191,7 @@ const Employee = () => {
                         <td className="py-[2%] w-[10%]   border-r-[1px] border-t-[1px]   text-center">
                           <span className=" max-md:text-[.7rem] text-[13px] font-[350]">{value.age}</span>
                         </td>
-                        <td className="py-[2%] w-[10%] pr-[2rem]  border-r-[1px] border-t-[1px] text-right">
+                        <td className="py-[2%] w-[10%] pr-[1.2rem]  border-r-[1px] border-t-[1px] text-right">
                           <span className=" max-md:text-[.7rem] text-[12px] font-[500]">${value.salary}</span>
                         </td>
                         <td className="py-[2%] w-[10%]   border-r-[1px] border-t-[1px]   text-center">
