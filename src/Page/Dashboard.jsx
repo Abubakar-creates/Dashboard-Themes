@@ -6,7 +6,7 @@ import {
   FaShoppingCart,
 } from "react-icons/fa6";
 import { MdAutoGraph } from "react-icons/md";
-import { IoMdCart } from "react-icons/io";
+import { IoIosArrowForward, IoMdCart } from "react-icons/io";
 import { GoCreditCard } from "react-icons/go";
 import { SlOptionsVertical } from "react-icons/sl";
 import { TiCreditCard } from "react-icons/ti";
@@ -171,6 +171,7 @@ const Dashboard = () => {
 
   return (
     <div className="bg-gray-100 max-md:p-6">
+      <div className="flex items-center gap-2"> <h1 className="text-sm text-gray-700 font-[600] cursor-pointer">Home</h1> <IoIosArrowForward /> <h1 className="text-sm text-gray-500 font-[600] cursor-pointer">Dashboard</h1>  </div>
       <h1 className="text-[1.5rem] text-gray-700 font-[500]">Dashboard</h1>
       <div className="flex mt-4 m-auto gap-8 max-md:flex-col">
         <div className="w-[40%] max-md:w-[98%] max-md:m-auto rounded-md shadow-md p-4 bg-white">
