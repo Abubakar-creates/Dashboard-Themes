@@ -1,18 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ListHead from '../components/List/ListHead';
 
 const paginatedData = [{
-    id: 1,
-    email: "seth@gmail.com",
+  id: 1,
+  email: "seth@gmail.com",
 }]
 
+const tableItemsPerPage = [5, 10, 30, 50, 100, 'ALL']
+
+
 const Employee = () => {
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [noData, setNoData] = useState(false);
+
+  const handleCreate = () => {
+  }
+
   return (
-    <div>
-       <table className="rounded-xl p-5 bg-white w-[90%] m-auto max-md:w-[100%]  mt-6 ">
+    <>
+      {loading ?
+        // <Loading /> 
+        ""
+        :
+        <>
+          {noData ?
+            //   <DataNotFound title={"No Category Found"} button={"+ Add Category"} />
+            ''
+            :
+
+            <div className="py-2 px-10">
+              <ListHead
+                title={"Employee Table"}
+                records={23}
+                buttonText={"+ Add Employee"}
+                searchData={search}
+                setSearchData={setSearch}
+                handleCreate={handleCreate} />
+              <div className="">
+
+                <table className="rounded-xl p-5 bg-white w-full max-md:w-[100%]  mt-6 ">
                   <thead className='mt-10'>
 
                     <tr className=" uppercase  text-sm leading-normal w-[100%]">
                       <th className="py-[2%] border-r-[1px] border-b-[2px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%]  text-[13px]">ID </th>
+                      <th className="py-[2%] border-r-[1px] border-b-[2px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%]  text-[13px]">Name</th>
                       <th className="py-[2%] border-r-[1px] border-b-[2px] border-b-black  w-[10%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%] text-[13px]">Email</th>
                       <th className="py-[2%] border-r-[1px] border-b-[2px] border-b-black  w-[10%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%] text-[13px]">Status</th>
                       <th className="py-[2%] border-r-[1px] border-b-[2px] border-b-black  w-[2%] max-md:text-[.6rem] max-md:font-[400] text-center text-[13px]">Actions</th>
@@ -48,7 +80,24 @@ const Employee = () => {
                     </tbody>
                   ))}
                 </table>
-    </div>
+                <div className="h-[3rem] w-full px-10 bg-gray-200 flex justify-between items-center" >
+                  <div className="flex items-center gap-5 ml-auto" >
+                    {/* <p>1 - {itemPerPage === 'ALL' ? 'ALL' : itemsPerPage}</p> */}
+                    <select className="px-2 !rounded-md  focus:outline-none border-[1px] border-gray-400  cursor-pointer"
+                      // onChange={(e) => setItemPerPage(e.target.value)}
+                      defaultValue={10}>
+                      {tableItemsPerPage?.map((val, i) => (
+                        <option value={val} key={i} >{val} / page</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </>
+      }
+    </>
   )
 }
 
