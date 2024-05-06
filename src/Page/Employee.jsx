@@ -140,7 +140,7 @@ const Employee = () => {
                       <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-center max-md:w-[2%]  text-[11px] select-none ">ID </th>
                       <TableHead headerStyle="pl-[2rem]" heading="Name" handleSorting={handleSorting} headingIndex={1} sortDirection={sortDirection} sortIndex={sortIndex} />
                       <TableHead headerStyle="pl-[2rem]" heading="Phone" handleSorting={handleSorting} headingIndex={2} sortDirection={sortDirection} sortIndex={sortIndex} />
-                      <TableHead headerStyle="" spanStyle="ml-auto" heading="Age" handleSorting={handleSorting} headingIndex={3} sortDirection={sortDirection} sortIndex={sortIndex} />
+                      <TableHead headerStyle="pl-6" spanStyle="ml-auto" heading="Age" handleSorting={handleSorting} headingIndex={3} sortDirection={sortDirection} sortIndex={sortIndex} />
                       <TableHead headerStyle="" spanStyle="ml-auto" heading="Salary" handleSorting={handleSorting} headingIndex={4} sortDirection={sortDirection} sortIndex={sortIndex} />
                       {/* <th className="py-[2%] border-r-[1px] border-b-[1px] border-b-black  w-[3%] max-md:text-[.6rem] max-md:font-[400] text-left pl-[2rem] max-md:w-[2%]  text-[11px] select-none ">
                         <div onClick={() => handleSorting(2)} className='flex justify-between items-center mr-4 cursor-pointer'>
