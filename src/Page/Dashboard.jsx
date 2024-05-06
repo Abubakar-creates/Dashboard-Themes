@@ -170,7 +170,7 @@ const Dashboard = () => {
   const [range, setRange] = useState(5);
 
   return (
-    <div className="bg-gray-100 max-md:p-6">
+    <div className="max-md:p-6">
       <div className="flex items-center gap-2"> <h1 className="text-sm text-gray-700 font-[600] cursor-pointer">Home</h1> <IoIosArrowForward /> <h1 className="text-sm text-gray-500 font-[600] cursor-pointer">Dashboard</h1>  </div>
       <h1 className="text-[1.5rem] text-gray-700 font-[500]">Dashboard</h1>
       <div className="flex mt-4 m-auto gap-8 max-md:flex-col">

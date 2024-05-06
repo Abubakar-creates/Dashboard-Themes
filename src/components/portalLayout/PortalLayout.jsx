@@ -1,14 +1,11 @@
 
-// import { useSession } from 'next-auth/react';
-// import { useRouter } from 'next/navigation';
 import React, { Fragment, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Transition } from '@headlessui/react';
 import Topbar from './TopBar';
 import Sidebar from './SideBar';
 import { useEffect } from 'react';
-// import {SESSION_ADMIN_LOGIN, SESSION_PROVIDER_LOGIN} from "../Utils/Constant";
-
+ 
 const PortalLayout = ({ children }) => {
 
 	const [showNav, setShowNav] = useState(true);
@@ -91,9 +88,9 @@ const PortalLayout = ({ children }) => {
 					</Transition>
 
 					<main
-						className={`bg-gray-100 pt-6 transition-all duration-[400ms] ${showNav && !isMobile ? "pl-56" : ""
+						className={`bg-gray-100 transition-all duration-[400ms] !z-0 ${showNav && !isMobile ? "pl-56" : ""
 							}`}>
-						<div className="bg-gray-100 px-4 md:px-16 min-h-screen max-h-[100%] pb-[4rem] ">{children}</div>
+						<div className="bg-gray-100 px-4 md:px-16 min-h-screen max-h-[100%] p-[4rem] dark:bg-[#141B2D]">{children}</div>
 					</main>
 				</div>
 
