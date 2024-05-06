@@ -40,7 +40,7 @@ const Sidebar = forwardRef(({ }, ref) => {
 
 
   return (
-    <div ref={ref} className=" fixed max-w-[16rem] h-full dark:bg-[#1F2940] rounded-r-[1.4rem] !z-10 shadow-sm max-md:w-[40%] overflow-auto no-scrollbar" >
+    <div ref={ref} className=" fixed max-w-[16rem] h-full bg-white dark:bg-[#1F2940] rounded-r-[1.4rem] !z-10 shadow-sm max-md:w-[40%] overflow-auto no-scrollbar" >
       <>
         <div className="flex p-6 items-center">
           <IoLogoApple className="text-[2.5rem] dark:text-gray-200" />
@@ -49,9 +49,6 @@ const Sidebar = forwardRef(({ }, ref) => {
             v1.0
           </div>
         </div>
-
-
-
 
         <h1 className="text-[12px] text-gray-600 font-[600] ml-8 mt-2 mb-2 ">
           Navigations

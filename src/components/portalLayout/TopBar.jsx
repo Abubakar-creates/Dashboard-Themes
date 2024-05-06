@@ -58,9 +58,7 @@ const Topbar = ({ showNav, setShowNav }) => {
 
 
   const [lightDark, setLightDark] = useState(
-    localStorage.getItem("lightDark")
-      ? localStorage.getItem("lightDark")
-      : "light"
+    localStorage.getItem("lightDark") ? localStorage.getItem("lightDark") : "light"
   );
 
   const toggleTheme = () => {
